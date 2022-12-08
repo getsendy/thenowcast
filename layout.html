@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link href="/static/style.css" rel="stylesheet">
+
+        <title> {% block title %} The Nowcast {% endblock %}</title>
+
+    </head>
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+              <a href="/" class="navbar-brand"> The Nowcast
+                  <img src="/static/images/02d@2x.png" height="28" alt="sun and clouds">
+              </a>
+              <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                  <a href="/" class="nav-item nav-link active">Basic Weather |</a>
+                <div class="navbar-nav">
+                    <a href="/get_full_weather" class="nav-item nav-link active">Detailed Weather |</a>
+                </div>
+              <div class="navbar-nav">
+                  <a href="/get_full_aqi" class="nav-item nav-link active">Detailed AQI</a>
+              </div>
+          </div>
+      </nav>
+
+
+    <main class="container-fluid py-5 text-center">
+      {% block main %}{% endblock %}
+
+
+    </main>
+       <!-- Footer - got info on how to do footer code here: https://mdbootstrap.com/docs/b4/jquery/navigation/footer/ -->
+       <footer class="page-footer font-small blue">
+
+        <div class="footer-attribution text-center">
+          <a href="https://openweathermap.org/faq">Weather data provided by OpenWeather</a>
+          <img src="/static/images/Logo.png" alt="thumbnail" class="img-thumbnail" style="width: 80px">
+        </div>
+
+      </footer>
+      <!-- Footer -->
+</html>

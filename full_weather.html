@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Detailed Weather Report
+{% endblock %}
+
+{% block main %}
+
+<div>
+    <h3>Detailed Weather Report</h3>
+</div>
+
+<div>
+    <p>
+        <b>Weather:</b> {{weather.weather[0]["description"] | capitalize}}
+        <img src="/static/images/{{weather.weather[0]["icon"]}}@2x.png" alt="thumbnail" class="img-thumbnail" style="width: 80px">
+    </p>
+    <p>
+        <b>Temperature:</b> {{weather.main["temp"]}}&#176
+    </p>
+    <p>
+        <b>Feels Like:</b> {{weather.main["feels_like"]}}&#176
+    </p>
+    <p>
+        <b>Humidity:</b> {{weather.main["humidity"]}}%
+    </p>
+    <p>
+        <b>Atmospheric Presure:</b> {{weather.main["pressure"]}} hPa
+    </p>
+    <p>
+        <b>Visibility:</b> {{weather.visibility}} (in meters)
+    </p>
+    <p>
+        <b>Wind Speed:</b> {{weather.wind["speed"]}}
+        {% if units == "metric" %}
+            meters/sec
+        {% endif %}
+
+        {% if units == "imperial" %}
+        miles/hour
+        {% endif %}
+    </p>
+    <p>
+        <b>Wind Direction:</b> {{weather.wind["deg"]}} degrees
+    </p>
+    <p>
+        <b>Cloud Cover:</b> {{weather.clouds["all"]}}%
+    </p>
+    <p>
+        {% if aqi.list[0]["main"]["aqi"] == 1 %}
+        <b>Air Quality:</b> Good
+        {% endif %}
+        {% if aqi.list[0]["main"]["aqi"] == 2 %}
+        <b>Air Quality:</b> Fair
+        {% endif %}
+        {% if aqi.list[0]["main"]["aqi"] == 3 %}
+        <b>Air Quality:</b> Moderate
+        {% endif %}
+        {% if aqi.list[0]["main"]["aqi"] == 4 %}
+        <b>Air Quality:</b> Poor
+        {% endif %}
+        {% if aqi.list[0]["main"]["aqi"] == 5 %}
+        <b>Air Quality:</b> Very Poor
+        {% endif %}
+    </p>
+</div>
+
+{% endblock %}

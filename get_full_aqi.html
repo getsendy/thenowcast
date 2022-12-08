@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Get Detailed Air Quality Index
+{% endblock %}
+
+{% block main %}
+<!-- Image courtesy of Pixabay: https://www.pexels.com/photo/white-clouds-531767/ -->
+<body background='/static/images/clouds.png'>
+    <p>
+        <larger>Get a detailed report on your Air Quality Index (AQI).</larger>
+    </p>
+
+    <h5>Enter Zipode:</h5>
+
+    <form action="/get_full_aqi" method="post">
+        <p>
+            <input autocomplete="off" autofocus name="zipcode" placeholder="Zipcode" type="number">
+        </p>
+        <p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </p>
+    </form>
+</body>
+{% endblock %}
+</div>

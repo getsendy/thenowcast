@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Get Detailed Weather Report
+{% endblock %}
+
+{% block main %}
+<!-- Image courtesy of Pixabay: https://www.pexels.com/photo/white-clouds-531767/ -->
+<body background='/static/images/clouds.png'>
+    <p>
+        <larger>Get your detailed weather report.</larger>
+    </p>
+
+    <h5>Enter Zipode:</h5>
+
+    <form action="/get_full_weather" method="post">
+        <p>
+            <input autocomplete="off" autofocus name="zipcode" placeholder="Zipcode" type="number">
+        </p>
+        <p>
+            <label>Unit of Measurement</label>
+            <select class="mx-auto" name="units" style="width:auto;">
+                <option value = "imperial">Imperial</option>
+                <option value = "metric">Metric</option>
+            </select>
+        </p>
+        <p>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </p>
+    </form>
+</body>
+{% endblock %}
+</div>
